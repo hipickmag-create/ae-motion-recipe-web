@@ -1,0 +1,29 @@
+Slug: loop-cycle
+Title: Loop Cycle
+Description: 키프레임 구간을 끝없이 그대로 반복하는 가장 기본적인 루프.
+Property: 키프레임이 있는 아무 속성
+
+Use Cases:
+- 🔄 반복 애니메이션 전반
+- 🎞️ GIF스러운 무한재생 소스
+
+Expression:
+```jsx
+loopOut("cycle");
+```
+
+Controls:
+- "cycle" | 반복 방식 | cycle / pingpong / offset / continue 중 선택
+
+Result:
+마지막 키프레임 이후에도 처음 구간을 계속 재생.
+
+Cautions:
+- 이 레이어에 최소 2개 이상의 키프레임이 있어야 작동합니다. 키프레임이 없으면 아무 효과도 나타나지 않습니다.
+
+Tips:
+- "cycle"을 "pingpong"으로만 바꿔도 완전히 다른 느낌(#08)이 됩니다. 따옴표 안 단어만 바꿔가며 테스트해보세요.
+
+Related:
+- 008
+- 036

@@ -1,0 +1,36 @@
+Slug: partial-slow-mo
+Title: Partial Slow-mo
+Description: 특정 구간만 느리게, 나머지는 정상 속도로 재생.
+Property: Layer → Time → Time Remap
+
+Use Cases:
+- 🐢 임팩트 순간만 강조하고 싶을 때
+- 🏃 액션 하이라이트 구간
+
+Expression:
+```jsx
+slowStart = 1; slowEnd = 2; slowFactor = 0.3;
+if (time < slowStart) {
+  time;
+} else if (time < slowEnd) {
+  slowStart + (time - slowStart) * slowFactor;
+} else {
+  slowStart + (slowEnd - slowStart) * slowFactor + (time - slowEnd);
+}
+```
+
+Controls:
+- slowStart / slowEnd | 느려질 구간(초) | 강조하고 싶은 구간
+- slowFactor | 느려지는 배율(0.3=30% 속도) | 0.1 ~ 0.5
+
+Result:
+지정 구간만 슬로우, 앞뒤는 정상 속도.
+
+Cautions:
+- #32와 마찬가지로 Time Remap이 켜져 있어야 합니다. slowEnd 이후 구간이 원본보다 짧아 보일 수 있으니 레이어 길이를 여유 있게 잡으세요.
+
+Tips:
+- slowFactor를 0에 가깝게 하면 거의 정지(프리즈 프레임)처럼 보입니다.
+
+Related:
+- 034

@@ -1,0 +1,28 @@
+Slug: time-remap-loop
+Title: Time Remap Loop
+Description: 소스 영상을 처음부터 끝까지 반복 재생.
+Property: Layer → Time → Time Remap(먼저 Time Remap 활성화 필요: Layer 메뉴 → Time → Enable Time Remapping)
+
+Use Cases:
+- 🔁 짧은 영상 소스를 배경처럼 무한 반복할 때
+
+Expression:
+```jsx
+sourceDuration = 3;
+time % sourceDuration;
+```
+
+Controls:
+- sourceDuration | 반복할 원본 길이(초) | 원본 소스 길이에 맞게
+
+Result:
+sourceDuration초 단위로 영상이 처음부터 계속 반복.
+
+Cautions:
+- Time Remap을 먼저 켜지 않으면 이 속성 자체가 보이지 않습니다. Layer 메뉴 → Time → Enable Time Remapping을 반드시 먼저 실행하세요.
+
+Tips:
+- sourceDuration을 실제 소스 길이보다 짧게 잡으면 영상 뒷부분이 아예 재생되지 않고 잘립니다. 정확한 길이를 확인 후 입력하세요.
+
+Related:
+- 007

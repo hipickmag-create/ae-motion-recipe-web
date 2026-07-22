@@ -1,0 +1,28 @@
+Slug: ping-pong
+Title: Ping Pong
+Description: 정방향-역방향을 왕복하며 반복.
+Property: 키프레임이 있는 아무 속성
+
+Use Cases:
+- ↔️ 왔다갔다 하는 스위치 모션
+- 🔁 부드러운 반복이 필요한 아이콘
+
+Expression:
+```jsx
+loopOut("pingpong");
+```
+
+Controls:
+- 없음 (옵션 문자열 자체가 값)
+
+Result:
+앞으로 갔다가 다시 거꾸로 돌아오는 걸 반복.
+
+Cautions:
+- #07 Loop Cycle과 헷갈리기 쉬운데, cycle은 "처음으로 뚝 끊고 다시 재생"이고 pingpong은 "거꾸로 되감아 재생"입니다.
+
+Tips:
+- 키프레임 2개(시작-끝)만 있어도 충분히 자연스러운 왕복이 만들어집니다.
+
+Related:
+- 007

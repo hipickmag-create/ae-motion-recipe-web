@@ -1,0 +1,37 @@
+Slug: cheat-sheet
+Title: 치트시트
+Description: 매번 챕터를 찾아보기 번거로운 한 줄짜리 표현들만 모은 요약표.
+Property: 표 참고
+
+Use Cases:
+- 전체 챕터 공통
+
+Expression:
+```jsx
+| 목적 | 코드 | 관련 레시피 |
+|---|---|---|
+| 기본 흔들림 | `wiggle(2, 20)` | #02 |
+| 무한 반복 | `loopOut("cycle")` | #07 |
+| 왕복 반복 | `loopOut("pingpong")` | #08 |
+| 무한 회전 | `time * 90` | #10 |
+| 값 제한 | `clamp(value, 0, 100)` | #49 |
+| 지연 참조 | `value.valueAtTime(time - 0.2)` | #54 |
+| 다른 레이어 참조 | `thisComp.layer("이름").transform.position` | #19 |
+| 레이어별 다른 랜덤 | `seedRandom(index, true); wiggle(2, 20)` | #29 |
+| 부드러운 보간 | `ease(time, 0, 1, 0, 100)` | #31 |
+| 숫자 카운터 | `Math.round(ease(time,0,2,0,1000)).toLocaleString()` | #38 |
+```
+
+Controls:
+- 표 참고 | 각 코드의 조절값은 관련 레시피 참고 | -
+
+Result:
+빠르게 코드만 복사해서 쓰고 싶을 때 이 표만 훑으면 됩니다.
+
+Cautions:
+- 표의 코드는 최소 버전이라, 실제로는 각 레시피 페이지의 전체 코드(변수 선언 포함)를 쓰는 걸 권장합니다.
+
+Tips:
+- 급할 땐 이 표에서 코드를 먼저 붙이고, 나중에 여유 있을 때 원본 레시피 페이지로 가서 조절값 설명을 읽어보세요.
+
+Related:

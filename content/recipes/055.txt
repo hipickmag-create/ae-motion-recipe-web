@@ -1,0 +1,30 @@
+Slug: camera-shake
+Title: Camera Shake
+Description: 핸드헬드로 찍은 듯한 카메라 무빙을 만듦.
+Property: Camera Layer → Transform → Position
+
+Use Cases:
+- 🎥 다큐/브이로그 느낌
+- 📹 현장감 있는 연출
+
+Expression:
+```jsx
+freq = 3; amp = 25;
+wiggle(freq, amp);
+```
+
+Controls:
+- freq | 흔들림 속도 | 1 ~ 5
+- amp | 흔들림 폭(px) | 10 ~ 40
+
+Result:
+카메라 레이어 자체가 자연스럽게 흔들려 화면 전체가 흔들리는 효과.
+
+Cautions:
+- 2D 카메라(Position만 있는)든 3D 카메라든 동일하게 적용되지만, 3D 카메라는 Z축까지 3차원 배열(`[x,y,z]`)이라 amp가 z축에도 적용돼 예상보다 확대/축소되는 느낌이 섞일 수 있습니다.
+
+Tips:
+- Rotation에도 작은 amp(0.5~2)로 같은 코드를 추가하면 훨씬 리얼해집니다(#56 참고).
+
+Related:
+- 056

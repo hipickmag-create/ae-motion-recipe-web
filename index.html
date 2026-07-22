@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AE Motion Recipe — After Effects Expression Library</title>
+    <meta name="description" content="After Effects 익스프레션을 카테고리별로 정리한 프리미엄 레시피 라이브러리입니다." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="src/site.js"></script>
+  </head>
+  <body data-page="home">
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="index.html#top" aria-label="AE Motion Recipe home"><span class="brand-mark">AE</span><span>Motion Recipe</span></a>
+        <div class="nav-links" aria-label="Section links"><a href="#chapters">Chapters</a><a href="#workflow">Workflow</a><a href="#preview">Preview</a></div>
+      </nav>
+    </header>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">After Effects Expression Library</p>
+          <h1 id="hero-title">필요한 익스프레션을 30초 안에 찾고, 바로 복사하세요.</h1>
+          <p class="hero-description"><span data-recipe-total>71</span>개의 익스프레션을 카테고리별로 정리했습니다.</p>
+          <form class="search-panel" role="search" aria-label="Expression recipe search" data-search-form>
+            <label class="sr-only" for="recipe-search">익스프레션 검색</label><span aria-hidden="true" class="search-icon">⌘</span>
+            <input id="recipe-search" type="search" placeholder="Float, Loop, Bounce, Typing…" data-search-input />
+            <button type="submit">Search</button>
+          </form>
+          <div class="search-results" aria-live="polite" data-search-results hidden></div>
+          <div class="hero-meta" aria-label="Library highlights"><span data-chapter-total>10 Chapters</span><span data-recipe-total-label>71 Recipes</span><span>Copy-ready Expressions</span></div>
+        </div>
+        <aside class="hero-card" aria-label="Featured recipe preview" data-featured-recipe></aside>
+      </section>
+      <section id="chapters" class="section" aria-labelledby="chapters-title">
+        <div class="section-heading"><p class="eyebrow">Recipe Chapters</p><h2 id="chapters-title">움직임의 목적에 맞춰 빠르게 고르세요.</h2><p>기본 움직임부터 실무 모션까지, 현장에서 바로 쓰기 쉬운 흐름으로 정리했습니다.</p></div>
+        <div class="chapter-grid" data-chapter-grid></div>
+      </section>
+      <section id="workflow" class="workflow"><div><span>01</span><h3>Find</h3><p>목적에 맞는 챕터와 레시피를 빠르게 찾습니다.</p></div><div><span>02</span><h3>Copy</h3><p>정리된 익스프레션 코드를 그대로 복사합니다.</p></div><div><span>03</span><h3>Adjust</h3><p>숫자만 바꿔 원하는 타이밍과 강도로 조정합니다.</p></div></section>
+      <section id="preview" class="preview-panel"><p class="eyebrow">Built for motion designers</p><h2>AI 도구처럼 보이지 않는, 프로덕션용 레퍼런스 경험.</h2><p>불필요한 장식은 덜고 정보 구조와 복사 흐름이 먼저 보이도록 구성했습니다.</p></section>
+    </main>
+  </body>
+</html>

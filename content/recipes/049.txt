@@ -1,0 +1,28 @@
+Slug: clamp
+Title: Clamp
+Description: 값이 특정 범위를 절대 벗어나지 않도록 제한.
+Property: 제한이 필요한 아무 속성
+
+Use Cases:
+- 🚧 드래그 범위 제한
+- 📊 프로그레스바가 100% 넘지 않게
+
+Expression:
+```jsx
+minVal = 0; maxVal = 100;
+clamp(value, minVal, maxVal);
+```
+
+Controls:
+- minVal / maxVal | 허용 최소/최대값 | 상황에 맞게
+
+Result:
+값이 아무리 커지거나 작아져도 지정 범위 안에서만 움직임.
+
+Cautions:
+- `clamp()`는 단독으로는 아무 움직임도 만들지 않는 "제한 함수"입니다. 다른 익스프레션과 함께 조합해서 써야 의미가 있습니다(예: `clamp(wiggle(2,50)[0], -100, 100)`처럼).
+
+Tips:
+- 프로그레스바 값이 100%를 넘어가는 실수를 방지할 때 가장 많이 씁니다.
+
+Related:

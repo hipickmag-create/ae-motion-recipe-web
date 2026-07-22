@@ -1,0 +1,31 @@
+Slug: d-day-counter
+Title: D-Day Counter
+Description: 목표일까지 남은 일수(혹은 지난 일수)를 표시.
+Property: Layer → Text → Source Text
+
+Use Cases:
+- 📅 D-Day 카운트다운
+- 🎂 기념일 카운터
+
+Expression:
+```jsx
+fps = 30; targetDay = 100;
+elapsedDays = Math.floor(time * fps / (fps * 60 * 60 * 24));
+d = targetDay - elapsedDays;
+"D-" + d;
+```
+
+Controls:
+- targetDay | 목표까지의 일수 | 원하는 값
+
+Result:
+"D-100" 형태로 표시.
+
+Cautions:
+- 실제 캘린더 날짜(연/월/일)가 아니라 영상 내 경과일 기반 카운트입니다. AE 익스프레션은 시스템의 실제 날짜를 안정적으로 가져오지 못하기 때문입니다.
+
+Tips:
+- 진짜 특정 날짜를 표시하고 싶다면 이 D-Day 방식으로 대체하는 게 실무에서 가장 안전합니다.
+
+Related:
+- 040

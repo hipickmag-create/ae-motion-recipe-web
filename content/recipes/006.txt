@@ -1,0 +1,35 @@
+Slug: decay-shake
+Title: Decay Shake
+Description: 충격을 받은 것처럼 강하게 흔들리다가 서서히 멈추는 움직임.
+Property: Layer → Transform → Rotation (Position은 배열 형태로 변환 필요)
+
+Use Cases:
+- 💥 충돌 연출
+- 📦 물건이 착지하는 순간
+- 🔔 벨/알림이 울린 직후
+
+Expression:
+```jsx
+freq = 10; decay = 4; amp = 15;
+t = time - inPoint;
+value + amp * Math.sin(freq * t) * Math.exp(-decay * t);
+```
+
+Controls:
+- freq | 떠는 속도 | 6 ~ 15
+- decay | 멈추는 속도(클수록 빨리 멈춤) | 2 ~ 8
+- amp | 처음 떨리는 폭 | 10 ~ 25
+
+Result:
+`inPoint`(레이어 시작 시점) 기준으로 한 번 강하게 떨리다 잦아듦.
+
+Cautions:
+- `inPoint`는 "레이어가 시작되는 시점"이라 충격이 발생하는 정확한 타이밍에 레이어를 분할(Split Layer)해서 그 지점부터 시작하게 만들어야 원하는 순간에 흔들립니다.
+
+Tips:
+- Position에 적용하려면 마지막 줄의 흔들림 값을 `shake = amp * Math.sin(freq * t) * Math.exp(-decay * t); value + [shake, shake]`처럼 배열로 더해야 합니다.
+- 특정 시점(예: 3초)에 충격을 주고 싶다면 `t = time - inPoint` 대신 `t = time - 3`으로 바꾸고 조건문 `t > 0 ? ... : 0`을 앞에 붙이면 더 정확합니다.
+
+Related:
+- 018
+- 055

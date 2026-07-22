@@ -1,0 +1,32 @@
+Slug: random-position
+Title: Random Position
+Description: 일정한 간격마다 무작위 위치로 순간이동.
+Property: Layer → Transform → Position
+
+Use Cases:
+- ✨ 파티클/글리치 연출
+- 📺 화면 노이즈 효과
+
+Expression:
+```jsx
+freq = 4; amp = 30;
+seedRandom(Math.floor(time * freq), true);
+value + [random(-amp, amp), random(-amp, amp)];
+```
+
+Controls:
+- freq | 위치가 바뀌는 빈도(초당 횟수) | 2 ~ 10
+- amp | 이동 거리(px) | 10 ~ 50
+
+Result:
+뚝뚝 끊기듯 무작위 위치로 점프(부드러운 흔들림은 #02 Wiggle 사용).
+
+Cautions:
+- `seedRandom(...)`을 빼면 매 프레임 다른 값이 나와서 지지직거리는 노이즈가 되어버립니다. 일정 간격으로 뚝뚝 끊기게 하려면 반드시 `seedRandom`과 `Math.floor(time*freq)` 조합을 유지하세요.
+
+Tips:
+- Wiggle과 헷갈리기 쉬운데, Wiggle은 부드럽게 흔들리고 이 레시피는 순간이동하듯 뚝뚝 끊깁니다.
+
+Related:
+- 002
+- 028

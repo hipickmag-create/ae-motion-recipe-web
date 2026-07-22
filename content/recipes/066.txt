@@ -1,0 +1,34 @@
+Slug: kinetic-typo-basic
+Title: Kinetic Typo Basic
+Description: 글자가 하나씩 순서대로, 아래에서 튕기며 등장.
+Property: 텍스트 레이어의 Animator → Position(Range Selector를 Character 단위로 추가)
+
+Use Cases:
+- 🔤 타이포 모션 인트로
+- 🎬 타이틀 시퀀스
+
+Expression:
+```jsx
+delayPerChar = 0.05; riseAmount = 30; duration = 0.4;
+d = textIndex * delayPerChar;
+t = time - inPoint - d;
+p = t > 0 ? Math.min(t / duration, 1) : 0;
+[0, riseAmount * (1 - p)];
+```
+
+Controls:
+- delayPerChar | 글자마다 밀리는 시간 | 0.03 ~ 0.08
+- riseAmount | 올라오는 거리(px) | 15 ~ 40
+
+Result:
+글자가 순서대로 아래에서 위로 자리를 잡으며 등장.
+
+Cautions:
+- #64와 마찬가지로 Range Selector의 "Based on"을 Characters로 설정해야 `textIndex`가 글자 단위로 작동합니다.
+
+Tips:
+- "튕기는" 느낌까지 원하면 #64의 `Math.cos` 오버슈트 로직을 이 코드의 마지막 줄에 섞어서 응용해보세요.
+
+Related:
+- 064
+- 067

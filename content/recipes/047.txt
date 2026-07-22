@@ -1,0 +1,33 @@
+Slug: beat-pulse
+Title: Beat Pulse
+Description: 소리가 일정 크기(threshold)를 넘을 때만 통통 튐.
+Property: Layer → Transform → Scale
+
+Use Cases:
+- 🥁 킥드럼에 맞춰 통통 튀는 로고
+- 🕺 비트 강조 연출
+
+Expression:
+```jsx
+threshold = 20; punch = 15;
+audioLayer = thisComp.layer("오디오 레이어명");
+amp = audioLayer.effect("Audio Amplitude")("Left Channel");
+s = amp > threshold ? 100 + punch : 100;
+[s, s];
+```
+
+Controls:
+- threshold | 반응을 시작할 소리 크기 기준 | 오디오에 맞춰 조절
+- punch | 튀는 정도(%) | 5 ~ 20
+
+Result:
+기준치를 넘는 비트에서만 순간적으로 커짐.
+
+Cautions:
+- threshold 값은 오디오마다 최적값이 다릅니다. Audio Amplitude 이펙트의 그래프를 보면서 적당한 기준치를 찾아야 합니다.
+
+Tips:
+- 반응이 아예 없으면 threshold를 낮추고, 너무 자주 반응하면 threshold를 높이세요.
+
+Related:
+- 014

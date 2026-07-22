@@ -1,0 +1,28 @@
+Slug: null-tracking
+Title: Null Tracking
+Description: 컨트롤용 널 오브젝트 하나로 여러 레이어를 동시에 조종.
+Property: Layer → Transform → Position
+
+Use Cases:
+- 🎛️ 마스터 컨트롤러 구성
+- 🖇️ 여러 레이어 한번에 움직이기
+
+Expression:
+```jsx
+thisComp.layer("Null 1").transform.position;
+```
+
+Controls:
+- "Null 1" | 참조할 널 레이어 이름 | 실제 널 이름과 일치
+
+Result:
+"Null 1"이라는 이름의 널 레이어를 움직이면 이 레이어도 함께 이동.
+
+Cautions:
+- 널 레이어 이름이 바뀌면(예: "Null 2"로 변경) 이 익스프레션도 같이 수정해야 합니다.
+
+Tips:
+- Parent를 Null로 지정하는 방식이 더 안정적이지만, 부모-자식 관계를 쓰기 어려운 상황(이미 다른 부모가 있을 때)엔 이 방식이 유용합니다.
+
+Related:
+- 058

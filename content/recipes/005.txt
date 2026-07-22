@@ -1,0 +1,32 @@
+Slug: vibration
+Title: Vibration
+Description: 아주 빠르고 미세하게 떠는, 긴장감 있는 흔들림.
+Property: Layer → Transform → Position
+
+Use Cases:
+- 📱 알림 아이콘
+- ⚡ 경고 효과
+- 🎮 임팩트 강조
+
+Expression:
+```jsx
+freq = 20; amp = 3;
+wiggle(freq, amp);
+```
+
+Controls:
+- freq | 떨림 속도(높을수록 미세하게 빠름) | 15 ~ 30
+- amp | 떨림 폭(px, 작게 유지) | 1 ~ 5
+
+Result:
+긴장·놀람 상태를 표현하는 듯한 미세 떨림.
+
+Cautions:
+- amp를 5px 이상으로 키우면 "떨림"이 아니라 그냥 #02 Wiggle처럼 보입니다. 이 레시피의 핵심은 freq는 높고 amp는 작다는 대비입니다.
+
+Tips:
+- 경고/알림 용도로 쓸 땐 #12(Opacity Blink)와 함께 써서 빨간색으로 깜빡이며 떠는 조합이 효과적입니다.
+
+Related:
+- 012
+- 028

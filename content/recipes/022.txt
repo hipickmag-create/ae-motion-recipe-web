@@ -1,0 +1,31 @@
+Slug: auto-chain
+Title: Auto Chain
+Description: 바로 위 레이어를 자동으로 참조해서 체인처럼 연결됨.
+Property: Layer → Transform → Position
+
+Use Cases:
+- 🔗 체인/목걸이
+- 🐛 마디로 이어진 오브젝트
+- 🦴 간단한 리깅 대체
+
+Expression:
+```jsx
+delay = 0.05;
+index > 1 ? thisComp.layer(index - 1).transform.position.valueAtTime(time - delay) : value;
+```
+
+Controls:
+- delay | 레이어 간 지연 시간(초) | 0.03 ~ 0.1
+
+Result:
+맨 위 레이어를 제외하고 각 레이어가 바로 위 레이어를 딜레이로 따라감.
+
+Cautions:
+- 레이어 순서(스택 위치)가 곧 체인 순서이므로, 타임라인에서 레이어 순서를 바꾸면 체인 연결도 바뀝니다.
+
+Tips:
+- 레이어를 새로 추가/삭제하면 index가 밀리니, 체인 구성이 끝난 뒤에는 레이어 순서를 고정해두는 게 안전합니다.
+
+Related:
+- 021
+- 024

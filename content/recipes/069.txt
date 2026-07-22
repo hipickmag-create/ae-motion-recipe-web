@@ -1,0 +1,31 @@
+Slug: button-press
+Title: Button Press
+Description: 버튼을 누른 것처럼 살짝 작아졌다가 원래대로 돌아옴.
+Property: ① Effect → Expression Controls → Checkbox Control 추가(클릭 트리거용)
+② Scale에 아래 코드 적용
+
+Use Cases:
+- 🖱️ 클릭 피드백
+- 📱 앱 인터랙션 목업
+
+Expression:
+```jsx
+pressed = effect("Checkbox Control")("Checkbox");
+s = pressed == 1 ? 92 : 100;
+[s, s];
+```
+
+Controls:
+- 없음(체크박스로 On/Off)
+
+Result:
+체크박스를 체크하는 타이밍에 버튼이 살짝 눌리는 느낌으로 축소.
+
+Cautions:
+- 체크박스를 계속 체크된 상태로 두면 버튼이 계속 작아진 채로 고정됩니다. 반드시 짧게 체크했다 해제하는 키프레임을 넣어야 "눌림→복귀"가 표현됩니다.
+
+Tips:
+- 체크박스 키프레임을 3~5프레임 정도로 아주 짧게 넣으면 실제 클릭처럼 순간적인 눌림 효과가 됩니다.
+
+Related:
+- 062

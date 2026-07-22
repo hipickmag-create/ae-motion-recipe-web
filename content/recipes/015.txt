@@ -1,0 +1,32 @@
+Slug: squash-and-stretch
+Title: Squash & Stretch
+Description: 이동하는 방향에 따라 눌리고 늘어나는 말랑한 느낌.
+Property: Layer → Transform → Scale
+
+Use Cases:
+- 🍮 말랑한 캐릭터/오브젝트
+- 🏀 튀는 공
+- 🎈 탄성 있는 소품
+
+Expression:
+```jsx
+amp = 0.3;
+v = velocity;
+s = Math.min(length(v) * amp, 30);
+[100 + s, 100 - s];
+```
+
+Controls:
+- amp | 속도에 반응하는 민감도 | 0.1 ~ 0.5
+
+Result:
+빠르게 움직일수록 가로로 늘어나고 세로로 눌리는 효과.
+
+Cautions:
+- Position에 먼저 이동 키프레임(또는 다른 익스프레션)이 있어야 `velocity` 값이 생겨서 작동합니다. 정지된 레이어에는 효과가 나타나지 않습니다.
+
+Tips:
+- 가로/세로가 반대로 늘어나 보이면 `[100+s, 100-s]`의 부호를 서로 바꿔보세요.
+
+Related:
+- 013

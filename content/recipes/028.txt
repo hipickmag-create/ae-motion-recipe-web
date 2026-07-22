@@ -1,0 +1,31 @@
+Slug: random-opacity
+Title: Random Opacity
+Description: 불규칙한 타이밍으로 투명도가 깜빡임.
+Property: Layer → Transform → Opacity
+
+Use Cases:
+- ⚡ 전기/네온 사인 깜빡임
+- 📺 화면 지지직 노이즈
+
+Expression:
+```jsx
+freq = 8; minOpacity = 40;
+seedRandom(Math.floor(time * freq), true);
+random(minOpacity, 100);
+```
+
+Controls:
+- freq | 깜빡이는 빈도 | 5 ~ 15
+- minOpacity | 가장 어두워질 때의 투명도(%) | 0 ~ 60
+
+Result:
+불규칙하게 밝기가 흔들리는 네온/고장난 화면 느낌.
+
+Cautions:
+- #12 Opacity Blink(규칙적)와 헷갈리지 마세요. 이 레시피는 규칙 없이 불규칙하게 깜빡이는 게 핵심입니다.
+
+Tips:
+- minOpacity를 0으로 하면 완전히 꺼졌다 켜졌다 하고, 40 이상으로 하면 은은하게 흔들리는 정도가 됩니다.
+
+Related:
+- 005

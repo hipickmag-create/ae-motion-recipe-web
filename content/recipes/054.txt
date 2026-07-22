@@ -1,0 +1,31 @@
+Slug: value-at-time
+Title: Value At Time
+Description: 특정 시점 이전/이후의 값을 가져옴. 딜레이·트레일 계열의 핵심 함수.
+Property: 값을 지연시키고 싶은 속성
+
+Use Cases:
+- ⏪ 과거 값 참조
+- 👥 팔로우/트레일 모션의 기반 로직
+
+Expression:
+```jsx
+delay = 0.2;
+value.valueAtTime(time - delay);
+```
+
+Controls:
+- delay | 과거로 참조할 시간(초) | 원하는 만큼
+
+Result:
+현재가 아니라 delay초 전의 값을 그대로 사용.
+
+Cautions:
+- `delay`에 음수를 넣으면(`time + delay`처럼) 아직 발생하지 않은 미래 값을 요청하게 되어 에러가 나거나 예측할 수 없는 값이 나옵니다. 항상 과거(`time - delay`) 방향으로만 사용하세요.
+
+Tips:
+- 이 문서의 #20, #21, #24, #30, #35, #48이 전부 이 함수를 기반으로 만들어졌습니다. 이 하나만 제대로 이해하면 나머지가 쉬워집니다.
+
+Related:
+- 020
+- 021
+- 035

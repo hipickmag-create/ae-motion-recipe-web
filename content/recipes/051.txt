@@ -1,0 +1,31 @@
+Slug: checkbox-control
+Title: Checkbox Control
+Description: 체크박스 하나로 애니메이션을 켜고 끔.
+Property: ① Effect → Expression Controls → Checkbox Control 추가
+② 원하는 속성에 아래 코드 적용
+
+Use Cases:
+- 🔀 여러 상태(정지/재생) 토글
+- 🧪 애니메이션 테스트용 스위치
+
+Expression:
+```jsx
+on = effect("Checkbox Control")("Checkbox");
+on == 1 ? wiggle(2, 20) : value;
+```
+
+Controls:
+- 없음(체크박스 On/Off로 조절)
+
+Result:
+체크박스를 체크하면 흔들림 On, 해제하면 정지 상태(Off).
+
+Cautions:
+- `on == 1`에서 `1`은 체크된 상태, `0`은 해제된 상태를 의미합니다. 반대로 만들고 싶으면 `on == 0`으로 바꾸세요.
+
+Tips:
+- 체크박스에 키프레임을 짧게 넣으면(체크→바로 해제) 순간적인 트리거처럼 쓸 수 있습니다(#69 Button Press 참고).
+
+Related:
+- 062
+- 069

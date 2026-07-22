@@ -1,0 +1,32 @@
+Slug: audio-wiggle
+Title: Audio Wiggle
+Description: 비트가 강할수록 흔들림이 커짐.
+Property: Layer → Transform → Position
+
+Use Cases:
+- 🎶 뮤직비디오 텍스트/로고 반응
+- 🕺 리듬감 있는 오브젝트
+
+Expression:
+```jsx
+freq = 4; sensitivity = 0.5;
+audioLayer = thisComp.layer("오디오 레이어명");
+amp = audioLayer.effect("Audio Amplitude")("Left Channel");
+wiggle(freq, amp * sensitivity);
+```
+
+Controls:
+- freq | 흔들리는 속도 | 2 ~ 6
+- sensitivity | 오디오 반응 정도 | 0.3 ~ 1
+
+Result:
+조용할 땐 거의 안 움직이다가 소리가 커지면 흔들림도 커짐.
+
+Cautions:
+- `wiggle()`의 두 번째 인자(amp)가 음수가 되면 에러가 날 수 있으니, `amp * sensitivity`가 항상 0 이상인지 확인하세요(오디오 앰플리튜드 값은 보통 0 이상입니다).
+
+Tips:
+- 너무 정신없이 흔들리면 freq를 낮추고 sensitivity를 낮추는 순서로 조절해보세요.
+
+Related:
+- 002

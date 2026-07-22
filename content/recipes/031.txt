@@ -1,0 +1,30 @@
+Slug: ease-speed-ramp
+Title: Ease Speed Ramp
+Description: 구간에 따라 속도가 저절로 빨라졌다 느려지게 만듦.
+Property: Layer → Transform → Position(또는 속도 조절이 필요한 아무 속성)
+
+Use Cases:
+- 🎢 가속/감속이 있는 자연스러운 이동
+- 📷 카메라 무빙 속도 조절
+
+Expression:
+```jsx
+t1 = 0; t2 = 2; startVal = 0; endVal = 500;
+ease(time, t1, t2, startVal, endVal);
+```
+
+Controls:
+- t1 / t2 | 시작·끝 시간(초) | 원하는 구간으로
+- startVal / endVal | 시작·끝 값 | 원하는 이동 범위
+
+Result:
+키프레임 이징을 직접 만지지 않고도 부드러운 가감속 이동 구현.
+
+Cautions:
+- 이 코드는 키프레임을 대신하는 것이라, 같은 속성에 키프레임이 이미 있으면 그 값을 무시하고 이 계산값으로 덮어씁니다.
+
+Tips:
+- `ease`를 `linear`로 바꾸면 가감속 없이 일정한 속도로 이동합니다. 부드러움이 필요 없을 때 참고하세요.
+
+Related:
+- 068

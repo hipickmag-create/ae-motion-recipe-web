@@ -1,0 +1,31 @@
+Slug: opacity-blink
+Title: Opacity Blink
+Description: 투명도가 규칙적으로 깜빡이는 것을 반복.
+Property: Layer → Transform → Opacity
+
+Use Cases:
+- 🔴 REC 표시
+- 🔔 알림 뱃지 강조
+- ⚠️ 경고 신호
+
+Expression:
+```jsx
+freq = 2;
+Math.abs(Math.sin(time * freq)) * 100;
+```
+
+Controls:
+- freq | 깜빡이는 속도 | 1 ~ 4
+
+Result:
+0~100%를 오가며 규칙적으로 깜빡임.
+
+Cautions:
+- `Math.abs()`가 없으면 음수 구간에서 Opacity가 음수가 되어 AE가 자동으로 0 처리하면서 깜빡이는 리듬이 어색해집니다. 반드시 `Math.abs()`를 유지하세요.
+
+Tips:
+- 완전히 꺼지지 않고 은은하게 깜빡이게 하려면 `Math.abs(Math.sin(time*freq)) * 60 + 40` 처럼 최소값을 더해주세요.
+
+Related:
+- 004
+- 005

@@ -1,0 +1,10 @@
+{
+  "name": "ae-motion-recipe",
+  "version": "0.1.0",
+  "private": true,
+  "description": "After Effects Expression Recipe Library frontend",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/parse-recipes.mjs && node scripts/build.mjs"
+  }
+}

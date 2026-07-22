@@ -1,0 +1,30 @@
+Slug: slider-control
+Title: Slider Control
+Description: 이펙트 패널의 슬라이더로 값을 조절할 수 있게 만듦(코드를 매번 안 고쳐도 됨).
+Property: ① 레이어에 Effect → Expression Controls → Slider Control 추가
+② 원하는 속성(예: Position)에 아래 코드 적용
+
+Use Cases:
+- 🎚️ 반복 작업에서 값 튜닝을 빠르게 하고 싶을 때
+
+Expression:
+```jsx
+amp = effect("Slider Control")("Slider");
+value + [0, Math.sin(time * 2) * amp];
+```
+
+Controls:
+- 없음(코드 대신 이펙트 패널의 슬라이더로 조절)
+
+Result:
+코드를 안 열어도 이펙트 패널 슬라이더만 드래그해서 amp 값 조절 가능.
+
+Cautions:
+- Slider Control 이펙트를 추가하지 않고 이 코드를 붙이면 "effect를 찾을 수 없다"는 에러가 납니다. 반드시 순서(① 이펙트 추가 → ② 코드 적용)를 지키세요.
+
+Tips:
+- 여러 레이어에서 같은 값을 공유하고 싶다면, 널 레이어 하나에 Slider Control을 넣고 다른 레이어들이 `thisComp.layer("Null 1").effect("Slider Control")("Slider")`로 참조하게 만드세요.
+
+Related:
+- 051
+- 052

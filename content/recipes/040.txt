@@ -1,0 +1,31 @@
+Slug: timecode
+Title: Timecode
+Description: 경과 시간을 분:초 형식으로 보여줌.
+Property: Layer → Text → Source Text
+
+Use Cases:
+- ⏱️ 스톱워치/타이머 UI
+- 🎬 영상 재생 타임코드
+
+Expression:
+```jsx
+t = time - inPoint;
+m = Math.floor(t / 60);
+s = Math.floor(t % 60);
+m + ":" + (s < 10 ? "0" : "") + s;
+```
+
+Controls:
+- 없음(inPoint 기준 자동 계산)
+
+Result:
+레이어 시작 시점부터 "0:00" 형태로 증가하는 타임코드.
+
+Cautions:
+- 초 단위가 한 자리일 때 앞에 0을 붙이는 부분(`s<10?"0":""`)을 지우면 "0:5"처럼 어색하게 표시되니 그대로 유지하세요.
+
+Tips:
+- 시간이 아니라 카운트다운(거꾸로)이 필요하면 `t = time - inPoint`를 `t = totalSeconds - (time - inPoint)`로 바꾸세요.
+
+Related:
+- 039

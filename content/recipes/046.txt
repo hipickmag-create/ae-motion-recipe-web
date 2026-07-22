@@ -1,0 +1,30 @@
+Slug: spectrum-link
+Title: Spectrum Link
+Description: 저음/고음 등 특정 주파수 대역에 반응.
+Property: Layer → Transform → Scale(Y)
+
+Use Cases:
+- 🎛️ 이퀄라이저 바 시각화
+- 🎵 주파수 대역별 반응 그래픽
+
+Expression:
+```jsx
+audioLayer = thisComp.layer("오디오 레이어명");
+freqBand = audioLayer.effect("Audio Spectrum")("Amplitude at Frequency")(120);
+[100, 100 + freqBand * 2];
+```
+
+Controls:
+- 120 | 반응할 주파수(Hz), 저음~고음 조절 | 60(저음) ~ 8000(고음)
+
+Result:
+지정한 주파수 대역의 크기에 따라 세로로 늘어남.
+
+Cautions:
+- Audio Amplitude가 아니라 **Audio Spectrum** 이펙트가 필요합니다(Effect → Generate → Audio Spectrum). 이름이 비슷해서 헷갈리기 쉬우니 주의하세요.
+
+Tips:
+- 여러 개의 막대(바)를 만들 땐 막대마다 이 주파수 숫자(120)만 다르게(예: 60, 250, 1000, 4000) 바꿔서 이퀄라이저 그래픽을 완성하세요.
+
+Related:
+- 043

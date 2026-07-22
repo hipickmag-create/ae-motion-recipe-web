@@ -1,0 +1,29 @@
+Slug: delay-follow
+Title: Delay Follow
+Description: 바로 따라가지 않고 살짝 늦게 뒤따라옴.
+Property: Layer → Transform → Position
+
+Use Cases:
+- 🎽 캐릭터 뒤에 늦게 따라오는 소품
+- 🧵 부드러운 팔로우 연출
+
+Expression:
+```jsx
+delay = 0.15;
+thisComp.layer("타겟").transform.position.valueAtTime(time - delay);
+```
+
+Controls:
+- delay | 지연 시간(초) | 0.05 ~ 0.3
+
+Result:
+타겟보다 delay초만큼 늦게 따라오는 부드러운 추적.
+
+Cautions:
+- delay가 너무 크면(0.5초 이상) "따라간다"기보다 "따로 논다"는 느낌이 나니 0.3초 이내를 권장합니다.
+
+Tips:
+- 여러 레이어에 delay 값만 다르게 주면 자연스럽게 #21 Trail(꼬리 효과)이 됩니다.
+
+Related:
+- 021

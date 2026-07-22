@@ -1,0 +1,30 @@
+Slug: frame-hold
+Title: Frame Hold
+Description: 프레임레이트를 강제로 낮춰 뚝뚝 끊기는 스탑모션 느낌을 만듦.
+Property: 아무 속성(Position, Rotation 등)
+
+Use Cases:
+- 🎞️ 클레이 애니메이션 느낌
+- 📼 레트로 영상 연출
+
+Expression:
+```jsx
+fps = 12;
+posterizeTime(fps);
+value;
+```
+
+Controls:
+- fps | 강제 적용할 프레임레이트 | 6 ~ 15
+
+Result:
+부드럽던 움직임이 fps 값만큼 끊기는 느낌으로 재생.
+
+Cautions:
+- `posterizeTime()`은 해당 레이어의 시간 자체를 끊어버리는 함수라, 이 익스프레션이 적용된 속성뿐 아니라 다른 익스프레션(wiggle 등)과 함께 쓰면 그것들도 같이 끊깁니다.
+
+Tips:
+- 전체 컴포지션을 스탑모션처럼 통일하고 싶다면 조정 레이어(Adjustment Layer)에 이 코드를 넣고 그 아래 모든 레이어에 영향을 주는 방식도 고려해보세요(단, Expression은 조정레이어 자체 속성에만 적용되니 레이어별로 개별 적용이 필요할 수 있습니다).
+
+Related:
+- 053

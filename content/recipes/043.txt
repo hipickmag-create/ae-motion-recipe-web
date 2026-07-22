@@ -1,0 +1,33 @@
+Slug: audio-scale
+Title: Audio Scale
+Description: 소리가 커지면 함께 커짐.
+Property: Layer → Transform → Scale
+
+Use Cases:
+- 🎵 음악 시각화
+- 🔊 스피커 아이콘 반응
+
+Expression:
+```jsx
+sensitivity = 3;
+audioLayer = thisComp.layer("오디오 레이어명");
+amp = audioLayer.effect("Audio Amplitude")("Left Channel");
+s = 100 + amp * sensitivity;
+[s, s];
+```
+
+Controls:
+- sensitivity | 반응 민감도 | 1 ~ 5
+- "오디오 레이어명" | 오디오 이펙트가 적용된 레이어 이름 | 실제 레이어명과 일치
+
+Result:
+소리 크기에 비례해 실시간으로 커졌다 작아짐.
+
+Cautions:
+- 오디오 레이어에 Audio Amplitude 이펙트가 없으면 "effect를 찾을 수 없다"는 에러가 납니다. 이펙트 이름과 채널명("Left Channel")도 정확히 일치해야 합니다.
+
+Tips:
+- 반응이 너무 과하면 sensitivity를 낮추고, 반응이 잘 안 느껴지면 오디오 레이어의 Audio Amplitude 이펙트 안에 있는 자체 게인(Gain) 값을 올려보세요.
+
+Related:
+- 048

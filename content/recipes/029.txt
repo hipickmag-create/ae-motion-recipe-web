@@ -1,0 +1,31 @@
+Slug: seed-random
+Title: Seed Random
+Description: 같은 익스프레션을 여러 레이어에 붙여도 레이어마다 다르게 움직이게 만듦.
+Property: Layer → Transform → Position (여러 레이어에 동일하게 붙여넣기)
+
+Use Cases:
+- 🎊 여러 파티클/오브젝트를 한 번에 다르게 흔들 때
+- 🍃 나뭇잎 여러 장
+
+Expression:
+```jsx
+freq = 2; amp = 20;
+seedRandom(index, true);
+wiggle(freq, amp);
+```
+
+Controls:
+- freq / amp | Wiggle과 동일 | freq 1~4, amp 10~30
+
+Result:
+index(레이어 번호)가 시드가 되어 레이어마다 서로 다른 패턴으로 흔들림.
+
+Cautions:
+- 이 코드는 "복사해서 여러 레이어에 그대로 붙여넣는 것"이 핵심입니다. 레이어마다 값을 다르게 손봐야 하는 게 아니라, 코드는 완전히 동일하게 두는 게 맞습니다.
+
+Tips:
+- 효과가 잘 안 보이면 레이어 순서가 겹쳐서 index가 같은 게 아닌지 확인하세요(같은 레이어를 복제만 하고 index가 그대로면 값이 똑같습니다 — 반드시 실제 레이어 스택에 넣어야 합니다).
+
+Related:
+- 002
+- 027

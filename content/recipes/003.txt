@@ -1,0 +1,35 @@
+Slug: swing
+Title: Swing
+Description: 나뭇잎, 간판, 전등, 식물처럼 한쪽을 축으로 자연스럽게 흔들리는 움직임.
+Property: Layer → Transform → Rotation
+
+Use Cases:
+- 🌿 나뭇잎
+- 🌾 풀
+- 🏮 간판
+- 💡 전등
+- 🎈 매달린 소품
+
+Expression:
+```jsx
+freq = 1; amp = 8;
+value + Math.sin(time * freq) * amp;
+```
+
+Controls:
+- freq | 흔들리는 속도 | 0.3 ~ 3
+- amp | 흔들리는 각도 | 2 ~ 20
+
+Result:
+좌우로 부드럽고 반복적인 흔들림.
+
+Cautions:
+- 회전축이 레이어 정중앙(기본 앵커포인트)에 있으면 물체 전체가 제자리에서 도는 것처럼 보여 어색합니다.
+
+Tips:
+- `freq=0.5; amp=5;` ➡️ 잔잔한 바람
+- `freq=2; amp=15;` ➡️ 강한 바람
+- 앵커 포인트(Anchor Point)를 회전축이 될 위치로 옮기세요. 나뭇잎→줄기 쪽, 간판→윗부분, 전등→천장 연결부처럼 실제 물체의 고정점에 맞추면 훨씬 자연스럽습니다.
+
+Related:
+- 001

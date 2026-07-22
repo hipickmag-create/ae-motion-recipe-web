@@ -1,0 +1,31 @@
+Slug: typing-cursor
+Title: Typing Cursor
+Description: 타이핑 애니메이션(#42) 끝에 깜빡이는 커서를 붙임.
+Property: Layer → Text → Source Text
+
+Use Cases:
+- ⌨️ 챗봇/터미널 스타일 텍스트 연출
+
+Expression:
+```jsx
+speed = 15; fullText = "타이핑 되는 문장입니다";
+n = Math.floor((time - inPoint) * speed);
+cursor = (time % 0.8 < 0.4) ? "|" : "";
+fullText.substr(0, n) + cursor;
+```
+
+Controls:
+- speed | 타이핑 속도 | 8 ~ 20
+- 0.8 / 0.4 | 커서 깜빡이는 주기 | 취향껏
+
+Result:
+글자가 채워지는 동안 끝에서 커서가 계속 깜빡임.
+
+Cautions:
+- #42 Typing 코드에 커서 로직만 추가한 것이라, fullText 내용은 여기서도 직접 수정해야 합니다.
+
+Tips:
+- 커서를 "_"(밑줄)로 바꾸고 싶으면 `"|"` 대신 `"_"`를 넣으면 됩니다.
+
+Related:
+- 042

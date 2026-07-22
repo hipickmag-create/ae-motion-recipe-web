@@ -1,0 +1,35 @@
+Slug: handheld-feel
+Title: Handheld Feel
+Description: 카메라 레이어가 없어도 개별 레이어에 손떨림 느낌을 줌.
+Property: Layer → Transform → Position, Rotation 둘 다 적용
+
+Use Cases:
+- 📱 폰카 촬영 느낌 재현
+- 📸 제품컷에 생동감 추가
+
+Expression:
+```jsx
+// Position
+freq = 4; amp = 6;
+wiggle(freq, amp);
+
+// Rotation
+freq = 4; amp = 0.8;
+wiggle(freq, amp);
+```
+
+Controls:
+- freq | 두 속성 동일하게 맞출 것 | 3 ~ 6
+- amp | Position 3~10px / Rotation 0.3~1.5도 | -
+
+Result:
+위치+회전이 같은 리듬으로 흔들려 리얼한 손떨림 구현.
+
+Cautions:
+- Position과 Rotation의 freq를 다르게 하면 두 움직임이 서로 어긋나 보여 부자연스럽습니다. 반드시 같은 값으로 맞추세요.
+
+Tips:
+- 이 코드는 Position과 Rotation, 두 속성에 각각 따로 붙여야 합니다. 하나의 코드로 두 속성을 동시에 제어할 수 없습니다.
+
+Related:
+- 055

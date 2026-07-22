@@ -1,0 +1,28 @@
+Slug: layer-follow
+Title: Layer Follow
+Description: 다른 레이어의 위치값을 실시간으로 그대로 따라감.
+Property: Layer → Transform → Position
+
+Use Cases:
+- 🔗 오브젝트끼리 붙여서 이동
+- 🏷️ 라벨이 제품을 따라다니는 연출
+
+Expression:
+```jsx
+thisComp.layer("타겟").transform.position;
+```
+
+Controls:
+- "타겟" | 따라갈 레이어 이름 | 실제 레이어명과 정확히 일치
+
+Result:
+지정한 레이어와 완전히 동일하게 이동.
+
+Cautions:
+- 레이어 이름을 하나라도 다르게 쓰면(띄어쓰기, 대소문자 포함) "레이어를 찾을 수 없다"는 에러가 납니다. 레이어명을 복사해서 붙여넣는 걸 권장합니다.
+
+Tips:
+- Parent-Child 관계로도 같은 효과를 낼 수 있지만, 이미 다른 부모가 지정된 레이어라면 이 방식이 더 편합니다.
+
+Related:
+- 020

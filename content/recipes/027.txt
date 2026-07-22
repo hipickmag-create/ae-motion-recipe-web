@@ -1,0 +1,32 @@
+Slug: random-scale
+Title: Random Scale
+Description: 일정 간격마다 무작위 크기로 바뀜.
+Property: Layer → Transform → Scale
+
+Use Cases:
+- ✨ 반짝이는 파티클
+- 🎲 불규칙한 크기의 도형 애니메이션
+
+Expression:
+```jsx
+freq = 3; amp = 20;
+seedRandom(Math.floor(time * freq), true);
+s = 100 + random(-amp, amp);
+[s, s];
+```
+
+Controls:
+- freq | 크기가 바뀌는 빈도 | 2 ~ 6
+- amp | 크기 변화 폭(%) | 10 ~ 30
+
+Result:
+100% 기준으로 랜덤하게 커졌다 작아짐.
+
+Cautions:
+- amp가 100보다 크면 음수 크기(뒤집힘)가 나올 수 있으니 amp는 100 미만으로 유지하세요.
+
+Tips:
+- 여러 파티클 레이어에 이 코드를 복붙하고 #29 Seed Random의 `seedRandom(index,true)`를 앞에 추가하면 레이어마다 다른 랜덤 크기가 됩니다.
+
+Related:
+- 029

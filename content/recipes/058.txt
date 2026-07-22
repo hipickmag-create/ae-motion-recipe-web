@@ -1,0 +1,31 @@
+Slug: spring-follow
+Title: Spring Follow
+Description: 목표 지점을 탄성 있게 부드럽게 따라감.
+Property: Layer → Transform → Position
+
+Use Cases:
+- 🖱️ 커서 팔로우 UI
+- 🎯 타겟을 부드럽게 추적하는 조준선
+
+Expression:
+```jsx
+smoothness = 0.15;
+target = thisComp.layer("Null 1").transform.position;
+value + (target - value) * smoothness;
+```
+
+Controls:
+- smoothness | 따라가는 강도(1에 가까울수록 즉각 반응) | 0.05 ~ 0.3
+
+Result:
+Null을 움직이면 탄성 있게, 살짝 늦게 부드럽게 따라옴.
+
+Cautions:
+- `value`(현재 레이어 자신의 값)를 참조하는 재귀적 구조라, smoothness가 1에 가까울수록 거의 딜레이 없이 따라가고 0에 가까울수록 거의 움직이지 않습니다.
+
+Tips:
+- #20 Delay Follow(고정 지연)와 다르게, 이 레시피는 "따라가는 강도"라서 탄성감이 있는 게 특징입니다.
+
+Related:
+- 023
+- 020

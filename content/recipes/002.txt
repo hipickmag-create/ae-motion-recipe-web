@@ -1,0 +1,33 @@
+Slug: wiggle
+Title: Wiggle
+Description: 가장 기본적인 무작위 흔들림. 유기적인 움직임이 필요할 때 만능으로 사용.
+Property: Layer → Transform → Position
+
+Use Cases:
+- 🌳 나무
+- 🐟 물고기
+- 📦 상자 더미
+- ✨ 파티클류 오브젝트
+
+Expression:
+```jsx
+freq = 2; amp = 20;
+wiggle(freq, amp);
+```
+
+Controls:
+- freq | 초당 흔들리는 횟수 | 1 ~ 4
+- amp | 흔들리는 거리(px) | 5 ~ 40
+
+Result:
+무작위지만 자연스러운 떨림.
+
+Cautions:
+- `wiggle()`은 AE 내장 함수라 변수 선언 없이도 작동하지만, 이 문서에서는 튜닝 편의를 위해 freq/amp로 선언 후 사용합니다. Rotation·Scale에도 그대로 적용 가능합니다.
+
+Tips:
+- 같은 코드를 여러 레이어에 그대로 복붙하면 전부 똑같이 흔들려서 부자연스러워요. 레이어마다 다르게 흔들고 싶다면 #29 Seed Random을 참고하세요.
+
+Related:
+- 029
+- 005

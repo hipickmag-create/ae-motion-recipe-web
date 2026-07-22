@@ -1,0 +1,31 @@
+Slug: audio-rotation
+Title: Audio Rotation
+Description: 소리 크기에 맞춰 회전값이 흔들림.
+Property: Layer → Transform → Rotation
+
+Use Cases:
+- 🎚️ 이퀄라이저 바늘
+- 🎧 사운드 반응 아이콘
+
+Expression:
+```jsx
+sensitivity = 0.5;
+audioLayer = thisComp.layer("오디오 레이어명");
+amp = audioLayer.effect("Audio Amplitude")("Left Channel");
+amp * sensitivity;
+```
+
+Controls:
+- sensitivity | 회전 반응 폭 | 0.2 ~ 1
+
+Result:
+소리가 커질수록 더 크게 회전.
+
+Cautions:
+- #43과 동일하게 Audio Amplitude 이펙트가 오디오 레이어에 먼저 적용돼 있어야 합니다.
+
+Tips:
+- 바늘처럼 한쪽으로만 돌게 하려면 앵커포인트를 회전축(바늘의 고정점)으로 옮기세요(#03의 Tip과 동일 원리).
+
+Related:
+- 043

@@ -1,0 +1,29 @@
+Slug: loading-spinner
+Title: Loading Spinner
+Description: #10 Infinite Spin과 동일 원리, 로딩 UI 전용으로 재구성.
+Property: Layer → Transform → Rotation
+
+Use Cases:
+- ⏳ 로딩 화면
+- 🔄 데이터 불러오는 중 표시
+
+Expression:
+```jsx
+speed = 360;
+time * speed;
+```
+
+Controls:
+- speed | 초당 회전 각도 | 180 ~ 720
+
+Result:
+1초에 한 바퀴(speed=360 기준) 도는 로딩 스피너.
+
+Cautions:
+- #10과 완전히 동일한 코드입니다. 로딩 UI 맥락에서 다시 소개한 것뿐입니다.
+
+Tips:
+- 로딩 점(...) 애니메이션과 함께 쓰려면 #41 Random Word Cycle의 구조를 응용해 `["", ".", "..", "..."]` 배열을 순환시키세요.
+
+Related:
+- 010

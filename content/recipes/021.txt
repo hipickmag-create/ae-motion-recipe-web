@@ -1,0 +1,32 @@
+Slug: trail
+Title: Trail
+Description: 여러 레이어가 하나씩 시간차를 두고 따라오며 꼬리처럼 이어짐.
+Property: Layer → Transform → Position (레이어마다 delay 값만 다르게 자동 계산됨)
+
+Use Cases:
+- 🐍 파티클 트레일
+- ✨ 잔상 효과
+- 🎏 여러 오브젝트가 줄지어 따라가는 연출
+
+Expression:
+```jsx
+delayPerLayer = 0.05;
+delay = (index - 1) * delayPerLayer;
+thisComp.layer("타겟").transform.position.valueAtTime(time - delay);
+```
+
+Controls:
+- delayPerLayer | 레이어 하나당 밀리는 시간 | 0.02 ~ 0.1
+
+Result:
+index(레이어 순번)가 클수록 더 늦게 따라와 자연스러운 꼬리 형성.
+
+Cautions:
+- 같은 코드를 트레일용 레이어 전부에 그대로 복붙하면 됩니다 — `index`가 레이어마다 자동으로 다르기 때문에 코드를 따로 수정할 필요가 없습니다.
+
+Tips:
+- 트레일용 레이어들을 위에서부터 순서대로 쌓아 배치하면 index가 자연스럽게 순서를 만듭니다.
+
+Related:
+- 020
+- 024

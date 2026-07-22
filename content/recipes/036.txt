@@ -1,0 +1,28 @@
+Slug: auto-loop-start
+Title: Auto Loop Start
+Description: 컴포지션이 재생되는 시점부터 자연스럽게 루프가 시작되도록 만듦.
+Property: 키프레임이 있는 속성
+
+Use Cases:
+- 🔄 프리컴포즈해서 여러 곳에 재사용하는 루프 소스
+
+Expression:
+```jsx
+loopOut("cycle");
+```
+
+Controls:
+- 없음
+
+Result:
+#07과 동일 원리지만, 프리컴포즈된 루프 소스를 다른 컴포지션에 가져다 써도 항상 자연스럽게 이어짐.
+
+Cautions:
+- 루프시킬 구간 앞뒤로 여백 키프레임이 남아있으면 그 여백까지 반복되어 버벅이는 것처럼 보입니다.
+
+Tips:
+- 딱 반복될 구간만 키프레임으로 남겨두고 나머지는 지우세요.
+
+Related:
+- 007
+- 009

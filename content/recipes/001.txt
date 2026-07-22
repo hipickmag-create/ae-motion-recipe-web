@@ -1,0 +1,33 @@
+Slug: float
+Title: Float
+Description: 공중에 살짝 뜬 듯한 느리고 우아한 상하 움직임.
+Property: Layer → Transform → Position
+
+Use Cases:
+- 🎈 풍선
+- 🧊 아이콘
+- 🛍️ 제품컷 소품
+- ☁️ 배경 오브젝트
+
+Expression:
+```jsx
+freq = 0.4; amp = 15;
+value + [0, Math.sin(time * freq) * amp];
+```
+
+Controls:
+- freq | 뜨는 속도 | 0.2 ~ 0.6
+- amp | 뜨는 높이(px) | 10 ~ 30
+
+Result:
+위아래로 천천히, 부드럽게 떠 있는 느낌.
+
+Cautions:
+- Position은 `[x, y]` 배열이라 반드시 `value + [0, ...]` 형태로 y값만 더해야 합니다. `value + Math.sin(...)` 처럼 숫자만 더하면 에러가 납니다.
+
+Tips:
+- freq를 0.5보다 낮게 쓰면 "정말 떠 있는" 느낌이 나고, 1 이상으로 올리면 오히려 통통 튀는(#04 Bob) 느낌에 가까워집니다.
+
+Related:
+- 003
+- 071

@@ -1,0 +1,48 @@
+Slug: bounce
+Title: Bounce
+Description: 키프레임으로 이동을 준 뒤, 도착 지점에서 공처럼 통통 튀며 멈춤.
+Property: Position 등 키프레임이 있는 속성 (최소 2개 키프레임 필요)
+
+Use Cases:
+- 🏀 등장/퇴장 모션
+- 🔘 버튼 팝업
+- 📦 아이콘 드롭
+
+Expression:
+```jsx
+freq = 3; decay = 4;
+n = 0;
+if (numKeys > 0) {
+  n = nearestKey(time).index;
+  if (key(n).time > time) n--;
+}
+if (n > 0) {
+  t = time - key(n).time;
+  v = velocityAtTime(key(n).time - 0.01);
+  amp = 0.05;
+  if (t < 3 / freq) {
+    value + v * amp * Math.sin(freq * t * 2 * Math.PI) * Math.exp(-decay * t);
+  } else {
+    value;
+  }
+} else {
+  value;
+}
+```
+
+Controls:
+- freq | 튕기는 속도 | 2 ~ 5
+- decay | 멈추는 속도 | 3 ~ 8
+- amp(코드 내부) | 튕기는 폭 | 0.02 ~ 0.1
+
+Result:
+마지막 키프레임에 도착한 뒤 관성으로 몇 번 튕기다 멈춤.
+
+Cautions:
+- 반드시 이동 애니메이션에 키프레임이 2개 이상 있어야 하고, 마지막 키프레임 이후 구간에 이 익스프레션이 적용돼야 튕기는 게 보입니다. 키프레임이 없으면 항상 `value`만 반환합니다.
+
+Tips:
+- 너무 복잡해 보이면 코드 자체는 건드리지 말고 freq, decay, amp 세 숫자만 바꿔가며 감을 잡으세요. 나머지 구조는 그대로 둬도 됩니다.
+
+Related:
+- 017

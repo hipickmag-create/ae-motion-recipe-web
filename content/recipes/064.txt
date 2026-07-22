@@ -1,0 +1,34 @@
+Slug: reels-word-pop
+Title: Reels Word Pop
+Description: 단어가 하나씩 통통 튀며 강조되는 자막.
+Property: 텍스트 레이어의 Animator → Scale(Range Selector를 Word 단위로 추가)
+
+Use Cases:
+- 🎬 릴스/쇼츠 자막 강조
+- 💬 포인트 단어 강조
+
+Expression:
+```jsx
+freq = 6; decay = 5; delayPerWord = 0.1;
+d = textIndex * delayPerWord;
+t = time - inPoint - d;
+s = t > 0 ? 100 + 30 * Math.exp(-decay * t) * Math.cos(freq * t) : 0;
+[s, s];
+```
+
+Controls:
+- delayPerWord | 단어마다 밀리는 시간 | 0.05 ~ 0.2
+- decay/freq | 튕기는 정도 | 4~8 / 3~7
+
+Result:
+단어 순서대로 팝업되며 등장.
+
+Cautions:
+- 텍스트 레이어에서 Animate → Scale을 추가한 뒤, Range Selector Advanced의 "Based on"을 Words로 바꿔야 `textIndex`가 단어 단위로 인식됩니다. 이 설정 없이는 코드가 작동하지 않습니다.
+
+Tips:
+- 글자 단위(Character)로 바꾸고 싶다면 "Based on"을 Characters로 바꾸면 #66 Kinetic Typo Basic과 비슷한 느낌이 됩니다.
+
+Related:
+- 065
+- 066

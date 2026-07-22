@@ -1,0 +1,31 @@
+Slug: chain-motion
+Title: Chain Motion
+Description: Null을 움직이면 그 반응이 순서대로 다음 레이어로 전달됨.
+Property: Layer → Transform → Position
+
+Use Cases:
+- 🐛 애벌레처럼 이어지는 움직임
+- 🌊 파도처럼 전달되는 연출
+
+Expression:
+```jsx
+delay = 0.08;
+d = (index - 1) * delay;
+thisComp.layer("Null 1").transform.position.valueAtTime(time - d);
+```
+
+Controls:
+- delay | 한 레이어당 전달 지연 | 0.03 ~ 0.15
+
+Result:
+Null을 움직이면 아래 레이어일수록 늦게, 파도처럼 반응.
+
+Cautions:
+- #21 Trail과 코드가 비슷하지만, 참조 대상이 특정 레이어("타겟")가 아니라 고정된 컨트롤 널이라는 점이 다릅니다.
+
+Tips:
+- Null 하나만 애니메이션시키면 나머지 레이어 전체가 자동으로 파도처럼 반응하므로, 키프레임 작업량이 크게 줄어듭니다.
+
+Related:
+- 023
+- 021

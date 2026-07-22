@@ -1,0 +1,33 @@
+Slug: overshoot
+Title: Overshoot
+Description: 목표 위치를 살짝 지나쳤다가 되돌아오며 안착.
+Property: Layer → Transform → Position (X축 예시)
+
+Use Cases:
+- 📥 패널/카드 슬라이드인
+- 🔘 버튼 눌림 반동
+- 📌 아이콘 정착
+
+Expression:
+```jsx
+freq = 6; decay = 5; amp = 25;
+t = time - inPoint;
+value + [amp * Math.exp(-decay * t) * Math.cos(freq * t) * (t > 0 ? 1 : 0), 0];
+```
+
+Controls:
+- freq | 오버슈트 진동 속도 | 4 ~ 8
+- decay | 안착 속도 | 3 ~ 8
+- amp | 튕겨나가는 거리(px) | 10 ~ 40
+
+Result:
+목표 위치를 넘었다가 탄력 있게 되돌아옴.
+
+Cautions:
+- X축(`[amp*..., 0]`)에만 적용된 코드입니다. Y축에 쓰려면 배열 순서를 `[0, amp*...]`로 바꿔야 합니다.
+
+Tips:
+- 등장 방향에 따라 amp 부호(+/-)를 바꿔서 어느 쪽에서 넘어오는지 조절하세요.
+
+Related:
+- 068

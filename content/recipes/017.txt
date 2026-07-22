@@ -1,0 +1,49 @@
+Slug: inertia
+Title: Inertia
+Description: 어떤 속성이든 키프레임 마지막 지점에서 관성으로 여운이 남는 범용 버전.
+Property: 키프레임이 있는 아무 속성 (최소 2개 키프레임)
+
+Use Cases:
+- 🔄 회전 마무리
+- 📏 크기 조절 마무리
+- ➡️ 이동 마무리 전반
+
+Expression:
+```jsx
+freq = 3; decay = 5; amp = 0.06;
+n = 0;
+if (numKeys > 0) {
+  n = nearestKey(time).index;
+  if (key(n).time > time) n--;
+}
+if (n > 0) {
+  t = time - key(n).time;
+  v = velocityAtTime(key(n).time - 0.01);
+  if (t < 2) {
+    value + v * amp * Math.sin(freq * t * 2 * Math.PI) * Math.exp(-decay * t);
+  } else {
+    value;
+  }
+} else {
+  value;
+}
+```
+
+Controls:
+- freq | 여운의 진동 속도 | 2 ~ 5
+- decay | 여운이 사라지는 속도 | 3 ~ 8
+- amp | 여운의 크기 | 0.03 ~ 0.1
+
+Result:
+#13 Bounce의 범용판. Position 외에 Scale, Rotation 등에도 적용 가능.
+
+Cautions:
+- #13과 마찬가지로 키프레임 2개 이상 필요합니다. Rotation처럼 1차원 속성은 숫자값으로 동작하고, Position/Scale처럼 배열 속성은 기존 배열 값에 속도 기반 여운이 더해집니다.
+- 2차원/3차원 속성에서 축별 제어가 필요하면 `[x, y]` 또는 `[x, y, z]` 형태로 분리해 조정하세요.
+
+Tips:
+- 회전에 쓸 때는 amp를 Position보다 훨씬 크게(예: 5~15) 잡아야 눈에 띕니다.
+
+Related:
+- 013
+- 018

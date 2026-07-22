@@ -1,0 +1,29 @@
+Slug: time-delay
+Title: Time Delay
+Description: 레이어의 애니메이션 전체를 뒤로 미룸.
+Property: 지연시키고 싶은 속성
+
+Use Cases:
+- ⏱️ 여러 요소가 순차적으로 등장해야 할 때
+
+Expression:
+```jsx
+delay = 0.5;
+value.valueAtTime(time - delay);
+```
+
+Controls:
+- delay | 지연 시간(초) | 원하는 만큼
+
+Result:
+원래 애니메이션이 delay초만큼 늦게 재생.
+
+Cautions:
+- `value.valueAtTime(...)`은 이 속성 자체의 과거 값을 가져오는 것이라, 다른 레이어를 지연시키려면 #20 Delay Follow처럼 `thisComp.layer(...)`를 써야 합니다.
+
+Tips:
+- 여러 요소를 순차 등장시킬 땐 이 코드보다 #30 Random Delay나 레이어 시작 지점을 직접 미루는 게 관리하기 더 쉬울 수 있습니다.
+
+Related:
+- 020
+- 054

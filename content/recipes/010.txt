@@ -1,0 +1,31 @@
+Slug: infinite-spin
+Title: Infinite Spin
+Description: 시작도 끝도 없이 일정 속도로 계속 회전. 키프레임이 필요 없음.
+Property: Layer → Transform → Rotation
+
+Use Cases:
+- 🌀 로딩 스피너
+- 💿 레코드판
+- ⚙️ 톱니바퀴
+- 🔆 로고 스핀
+
+Expression:
+```jsx
+speed = 90;
+time * speed;
+```
+
+Controls:
+- speed | 초당 회전 각도(360=1초에 한바퀴) | 30 ~ 360
+
+Result:
+키프레임 없이도 일정한 속도로 무한 회전.
+
+Cautions:
+- 음수(-90 등)를 넣으면 반대 방향으로 회전합니다. 회전 방향이 이상하면 speed 부호만 바꿔보세요.
+
+Tips:
+- 키프레임이 하나도 없어야 하는 게 아니라, 있어도 이 익스프레션이 그 값을 덮어씁니다. 굳이 키프레임을 만들 필요가 없다는 뜻입니다.
+
+Related:
+- 061

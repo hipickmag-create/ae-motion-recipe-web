@@ -1,0 +1,31 @@
+Slug: random-rotation
+Title: Random Rotation
+Description: 일정 간격마다 무작위 각도로 튐 없이 전환.
+Property: Layer → Transform → Rotation
+
+Use Cases:
+- 🃏 카드가 흩날리는 연출
+- 🌀 글리치 텍스트/이미지
+
+Expression:
+```jsx
+freq = 3; amp = 25;
+seedRandom(Math.floor(time * freq), true);
+value + random(-amp, amp);
+```
+
+Controls:
+- freq | 회전값이 바뀌는 빈도 | 2 ~ 8
+- amp | 최대 회전 각도 | 10 ~ 40
+
+Result:
+일정 간격으로 툭툭 각도가 바뀌는 랜덤 회전.
+
+Cautions:
+- #25와 동일한 구조이므로, freq를 너무 높이면(10 이상) 진짜 랜덤이 아니라 미세하게 떠는 것처럼 보일 수 있습니다.
+
+Tips:
+- 카드가 흩날리는 느낌을 내려면 #25 Random Position과 이 레시피를 같은 freq로 맞춰서 같이 쓰세요.
+
+Related:
+- 025

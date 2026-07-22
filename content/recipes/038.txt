@@ -1,0 +1,31 @@
+Slug: counter
+Title: Counter
+Description: 0에서 목표 숫자까지 부드럽게 증가하며 천 단위 콤마가 붙음.
+Property: Layer → Text → Source Text
+
+Use Cases:
+- 📈 매출/조회수 카운팅
+- 🎯 목표 수치 강조
+
+Expression:
+```jsx
+startTime = 0; endTime = 2; targetValue = 128000;
+v = ease(time, startTime, endTime, 0, targetValue);
+Math.round(v).toLocaleString();
+```
+
+Controls:
+- startTime / endTime | 카운팅 구간(초) | 원하는 구간
+- targetValue | 최종 숫자 | 원하는 목표값
+
+Result:
+지정 시간 동안 0에서 targetValue까지 콤마 포맷으로 카운팅.
+
+Cautions:
+- `endTime`을 지나면 값이 정확히 targetValue에 고정됩니다(더 증가하지 않음). 계속 증가하는 카운터를 원하면 #37을 사용하세요.
+
+Tips:
+- `ease`를 `linear`로 바꾸면 등속으로 증가하고, `ease`를 유지하면 끝에서 살짝 느려지며 자연스럽게 멈춥니다.
+
+Related:
+- 037

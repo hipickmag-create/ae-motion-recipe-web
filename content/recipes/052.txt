@@ -1,0 +1,28 @@
+Slug: angle-control
+Title: Angle Control
+Description: 각도 컨트롤 이펙트로 회전값을 UI에서 직접 조절.
+Property: ① Effect → Expression Controls → Angle Control 추가
+② Rotation에 아래 코드 적용
+
+Use Cases:
+- 🎚️ 회전 각도를 자주 바꿔야 하는 반복 작업
+
+Expression:
+```jsx
+effect("Angle Control")("Angle");
+```
+
+Controls:
+- 없음(이펙트 패널의 다이얼로 조절)
+
+Result:
+코드 수정 없이 이펙트 패널에서 각도 다이얼로 회전값 조절.
+
+Cautions:
+- Angle Control 이펙트를 추가하지 않으면 에러가 납니다(#50과 동일한 주의사항).
+
+Tips:
+- 게이지 바늘(#Chapter10 응용)처럼 특정 값에 따라 회전해야 하는 UI에 유용합니다.
+
+Related:
+- 050

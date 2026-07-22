@@ -1,0 +1,30 @@
+Slug: combination-preset
+Title: 조합 프리셋
+Description: 단일 익스프레션보다 실무에서는 조합해서 쓰는 경우가 많아서 대표 조합만 정리.
+Property: 아래 조합 참고
+
+Use Cases:
+- **제품컷 부유감**: Position에 #01 Float + Rotation에 #03 Swing(amp를 2~4로 작게)
+- **인트로 로고**: #67 Logo Reveal + 배경 레이어에 #57 Auto Parallax
+- **브이로그 손맛**: #56 Handheld Feel 전체 레이어 적용 + 컷 전환 시 #06 Decay Shake
+- **SNS 카드뉴스**: #68 Card Slide-in + 텍스트에 #38 Counter 또는 #37 Number Increase
+- **UI 목업 시연**: #62 Button Hover + #69 Button Press(체크박스 두 개로 나눠서 각각 연결)
+
+Expression:
+```jsx
+아래 각 조합에 표시된 레시피 번호의 코드를 그대로 사용
+```
+
+Controls:
+- 각 레시피 페이지의 조절값 참고
+
+Result:
+"등장 → 유지 → 반응"의 흐름으로 조합하면 실무 완성도가 확 올라감.
+
+Cautions:
+- 조합할 때 같은 속성(예: Position)에 두 코드를 동시에 넣을 수는 없습니다 — 서로 다른 속성(Position/Rotation/Scale/Opacity)에 나눠서 적용해야 합니다.
+
+Tips:
+- 처음엔 레시피 하나씩만 적용해서 각각의 느낌을 확인한 뒤, 조합은 그다음 단계로 시도해보세요.
+
+Related:

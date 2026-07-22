@@ -1,0 +1,32 @@
+Slug: typing
+Title: Typing
+Description: 문장이 왼쪽부터 한 글자씩 나타남.
+Property: Layer → Text → Source Text
+
+Use Cases:
+- ⌨️ 타이핑 연출
+- 💬 대화창/자막 등장
+
+Expression:
+```jsx
+speed = 15;
+fullText = "타이핑 되는 문장입니다";
+n = Math.floor((time - inPoint) * speed);
+fullText.substr(0, n);
+```
+
+Controls:
+- speed | 초당 등장하는 글자 수 | 8 ~ 20
+- fullText | 표시할 전체 문장 | 원하는 텍스트로 수정
+
+Result:
+레이어 시작 시점부터 한 글자씩 순차적으로 나타남.
+
+Cautions:
+- 텍스트 레이어 자체에 이미 써 있는 글자는 무시되고, 코드 안의 `fullText` 값이 실제로 표시됩니다. 문구를 바꾸려면 반드시 코드 안의 `fullText`를 수정하세요.
+
+Tips:
+- 문장이 너무 빨리/느리게 끝나면 speed를 조절하되, 문장 길이가 다르면 매번 speed를 다시 계산해야 하는 번거로움이 있습니다.
+
+Related:
+- 059

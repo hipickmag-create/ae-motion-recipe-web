@@ -1,0 +1,38 @@
+Slug: logo-reveal
+Title: Logo Reveal
+Description: 로고가 작게 시작해 탄력 있게 커지며 동시에 페이드인됨.
+Property: Scale과 Opacity 두 속성에 각각 적용
+
+Use Cases:
+- 🎬 브랜드 인트로
+- 📢 로고 등장 연출
+
+Expression:
+```jsx
+// Scale
+freq = 5; decay = 6;
+t = time - inPoint;
+s = 100 + 40 * Math.exp(-decay * t) * Math.cos(freq * t) * (t > 0 ? 1 : 0);
+[s, s];
+
+// Opacity
+duration = 0.3;
+t = time - inPoint;
+Math.min((t / duration) * 100, 100);
+```
+
+Controls:
+- decay/freq | 탄력 정도 | 4~8 / 3~7
+- duration | 페이드인 시간(초) | 0.2 ~ 0.5
+
+Result:
+로고가 페이드인과 동시에 탄성 있게 커지며 정착.
+
+Cautions:
+- Scale 코드와 Opacity 코드는 서로 다른 속성에 각각 따로 붙여야 합니다. 한쪽에만 붙이면 절반의 효과만 나타납니다.
+
+Tips:
+- #14 Elastic Pop-in과 코드가 거의 같습니다 — 여기에 Opacity 페이드인만 추가한 완성형이라고 이해하면 됩니다.
+
+Related:
+- 014

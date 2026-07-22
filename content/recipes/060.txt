@@ -1,0 +1,31 @@
+Slug: auto-blink
+Title: Auto Blink
+Description: 불규칙한 듯 자연스러운 깜빡임 패턴을 만듦.
+Property: Layer → Transform → Opacity(또는 Scale(Y)로 눈 감김 표현)
+
+Use Cases:
+- 👁️ 캐릭터 눈 깜빡임
+- 📍 지도 포인트 강조
+
+Expression:
+```jsx
+interval = 3; blinkDuration = 0.15;
+t = time % interval;
+t < blinkDuration ? 0 : 100;
+```
+
+Controls:
+- interval | 깜빡이는 주기(초) | 2 ~ 5
+- blinkDuration | 깜빡이는 순간의 길이(초) | 0.1 ~ 0.2
+
+Result:
+interval초마다 한 번씩 짧게 깜빡임.
+
+Cautions:
+- 이 코드는 완전히 규칙적인 깜빡임입니다. 사람 눈처럼 "가끔 두 번 연속 깜빡이는" 불규칙함까지 원한다면 #30 Random Delay 같은 랜덤 요소를 결합해야 합니다.
+
+Tips:
+- Scale(Y)에 적용해서 세로로 납작해지게 하면 눈 감김(뜨고 감기) 느낌을 더 잘 표현할 수 있습니다.
+
+Related:
+- 012

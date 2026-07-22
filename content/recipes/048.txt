@@ -1,0 +1,31 @@
+Slug: audio-delay
+Title: Audio Delay
+Description: 오디오 반응이 살짝 늦게 따라오게 만들어 더 부드럽게 보이게 함.
+Property: Layer → Transform → Scale
+
+Use Cases:
+- 🌊 오디오 반응이 너무 튀어 보일 때 완충 처리
+
+Expression:
+```jsx
+delay = 0.05; sensitivity = 3;
+audioLayer = thisComp.layer("오디오 레이어명");
+amp = audioLayer.effect("Audio Amplitude")("Left Channel").valueAtTime(time - delay);
+s = 100 + amp * sensitivity;
+[s, s];
+```
+
+Controls:
+- delay | 지연 시간(초) | 0.02 ~ 0.1
+
+Result:
+#43보다 살짝 부드럽게, 여운을 두고 반응.
+
+Cautions:
+- delay를 너무 크게(0.2초 이상) 주면 음악과 시각적으로 어긋나 보일 수 있습니다.
+
+Tips:
+- #43 Audio Scale이 너무 날카롭게 반응한다고 느껴질 때 이 레시피로 바꿔보세요.
+
+Related:
+- 043

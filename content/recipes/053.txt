@@ -1,0 +1,29 @@
+Slug: posterizetime
+Title: PosterizeTime
+Description: 전체 애니메이션의 체감 프레임레이트를 낮춤(#34와 동일 함수, Utility 관점에서 재수록).
+Property: 아무 속성
+
+Use Cases:
+- 🎞️ 애니메이션 전체 톤을 스탑모션처럼 통일할 때
+
+Expression:
+```jsx
+fps = 10;
+posterizeTime(fps);
+value;
+```
+
+Controls:
+- fps | 체감 프레임레이트 | 6 ~ 15
+
+Result:
+부드러운 움직임이 지정 fps만큼 끊겨 보임.
+
+Cautions:
+- #34 Frame Hold와 완전히 동일한 코드입니다. 이 챕터에서는 "실무 함수 모음" 관점으로 다시 소개한 것뿐입니다.
+
+Tips:
+- 값을 realtime으로 확인하려면 미리보기(RAM Preview)를 돌려봐야 정확히 체감됩니다. 뷰어 화면 스크럽만으로는 안 보일 수 있어요.
+
+Related:
+- 034

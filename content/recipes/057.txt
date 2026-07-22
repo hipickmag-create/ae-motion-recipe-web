@@ -1,0 +1,29 @@
+Slug: auto-parallax
+Title: Auto Parallax
+Description: 배경/중경/전경 레이어가 서로 다른 속도로 움직여 입체감을 만듦.
+Property: Layer → Transform → Position(레이어마다 depthFactor만 다르게)
+
+Use Cases:
+- 🏔️ 배경 레이어드 씬
+- 📱 SNS 스크롤형 배경 연출
+
+Expression:
+```jsx
+speed = 100; depthFactor = 0.3;
+value + [-time * speed * depthFactor, 0];
+```
+
+Controls:
+- depthFactor | 레이어의 깊이감(멀수록 작게) | 배경 0.1~0.3 / 전경 0.8~1.2
+
+Result:
+depthFactor가 작을수록 느리게(멀리 있는 것처럼), 클수록 빠르게 이동.
+
+Cautions:
+- 레이어마다 이 코드를 복붙한 뒤 depthFactor 숫자만 직접 바꿔줘야 합니다(#29처럼 index 기반 자동화는 아님).
+
+Tips:
+- speed는 모든 레이어에 동일하게 두고 depthFactor만 레이어별로 다르게 하는 게 관리하기 쉽습니다.
+
+Related:
+- 063

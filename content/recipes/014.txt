@@ -1,0 +1,34 @@
+Slug: elastic-pop-in
+Title: Elastic Pop-in
+Description: 0에서 목표 크기까지 통통 튀며 등장.
+Property: Layer → Transform → Scale
+
+Use Cases:
+- 🎉 로고/뱃지 등장
+- 🔘 버튼 팝업
+- 📢 강조 텍스트 등장
+
+Expression:
+```jsx
+freq = 5; decay = 6; target = 100;
+t = time - inPoint;
+s = target + target * Math.exp(-decay * t) * Math.cos(freq * t) * (t > 0 ? 1 : 0);
+[s, s];
+```
+
+Controls:
+- freq | 튕기는 진동수 | 3 ~ 8
+- decay | 진정되는 속도 | 4 ~ 10
+- target | 최종 크기(%) | 100
+
+Result:
+레이어 시작 지점(inPoint)부터 튕기며 커져서 정착.
+
+Cautions:
+- 시작 시점이 `inPoint`이므로, 원하는 타이밍에 등장시키려면 레이어 시작점을 그 타이밍에 맞춰 옮겨야 합니다.
+
+Tips:
+- decay를 낮추면(3~4) 더 오래 튕기고, 높이면(8~10) 한두 번만 튕기고 바로 멈춥니다.
+
+Related:
+- 067

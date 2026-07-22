@@ -1,0 +1,29 @@
+Slug: number-increase
+Title: Number Increase
+Description: 시간에 따라 숫자가 1씩 증가.
+Property: Layer → Text → Source Text
+
+Use Cases:
+- 🔢 순위 숫자
+- 📊 카운터 전반
+
+Expression:
+```jsx
+speed = 1;
+Math.floor(time * speed).toString();
+```
+
+Controls:
+- speed | 초당 증가 속도 | 1 = 1초에 1씩
+
+Result:
+재생 시간에 비례해 정수가 증가.
+
+Cautions:
+- Source Text에 익스프레션을 걸 땐 반드시 문자열(`.toString()`)로 반환해야 합니다. 숫자만 반환하면 에러가 납니다.
+
+Tips:
+- 레이어 시작부터가 아니라 특정 시점부터 세고 싶으면 `time`을 `time - inPoint`로 바꾸세요.
+
+Related:
+- 038

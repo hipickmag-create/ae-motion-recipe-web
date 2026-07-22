@@ -1,0 +1,33 @@
+Slug: card-slide-in
+Title: Card Slide-in
+Description: 카드가 옆에서 부드럽게 밀려 들어옴.
+Property: Layer → Transform → Position(X축)
+
+Use Cases:
+- 📱 카드뉴스
+- 🛍️ 상품 슬라이드 배너
+
+Expression:
+```jsx
+fromOffset = 300; startTime = 0; endTime = 0.4;
+finalX = value[0];
+x = ease(time, startTime, endTime, finalX + fromOffset, finalX);
+[x, value[1]];
+```
+
+Controls:
+- fromOffset | 밀려오는 거리(px) | 200 ~ 500
+- startTime/endTime | 슬라이드 걸리는 시간 | 0.3 ~ 0.6초
+
+Result:
+오른쪽(양수 기준)에서 제자리로 부드럽게 슬라이드 인.
+
+Cautions:
+- `finalX = value[0]`은 현재 Position의 X값을 "최종 도착 지점"으로 자동 인식하는 구조입니다. 이 레이어의 Position 자체는 건드리지 말고 최종 위치에 그대로 둔 채 이 코드만 붙이세요.
+
+Tips:
+- 왼쪽에서 들어오게 하려면 fromOffset을 음수(-300)로 바꾸세요.
+
+Related:
+- 016
+- 038

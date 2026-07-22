@@ -1,0 +1,29 @@
+Slug: scroll-animation
+Title: Scroll Animation
+Description: 리스트나 피드가 위로 끊임없이 흐르는 스크롤 연출.
+Property: Layer → Transform → Position
+
+Use Cases:
+- 📱 앱 피드 스크롤 목업
+- 📜 크레딧 롤
+
+Expression:
+```jsx
+speed = 80;
+value + [0, -time * speed];
+```
+
+Controls:
+- speed | 스크롤 속도(px/초) | 30 ~ 150
+
+Result:
+위쪽으로 일정한 속도로 끊임없이 흐름.
+
+Cautions:
+- 시간이 지날수록 값이 계속 커지므로(무한정 위로 이동), 리스트 이미지 자체를 세로로 충분히 길게 만들거나 #07 Loop Cycle과 결합해 반복시켜야 화면이 비어 보이지 않습니다.
+
+Tips:
+- 크레딧 롤처럼 끝이 있는 콘텐츠라면 이 코드보다 일반 키프레임(Ease Speed Ramp #31)이 더 관리하기 쉬울 수 있습니다.
+
+Related:
+- 057
