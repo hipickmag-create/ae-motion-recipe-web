@@ -25,6 +25,8 @@
         </a>
         <div class="nav-links" aria-label="Section links">
           <a href="chapter.html">Chapters</a>
+          <a href="#search">Search</a>
+          <a href="#featured">Featured</a>
           <a href="#workflow">Workflow</a>
           <a href="#preview">Preview</a>
         </div>
@@ -32,59 +34,60 @@
     </header>
 
     <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
+      <section class="landing-hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <p class="eyebrow">After Effects Expression Library</p>
-          <h1 id="hero-title">필요한 익스프레션을<br />30초 안에 찾고,<br />바로 복사하세요.</h1>
-          <p class="hero-description">70+개의 익스프레션을 카테고리별로 정리했습니다.</p>
-          <form class="search-panel" role="search" aria-label="Expression recipe search">
-            <label class="sr-only" for="recipe-search">익스프레션 검색</label>
-            <span aria-hidden="true" class="search-icon">⌘</span>
-            <input id="recipe-search" type="search" placeholder="Float, Loop, Bounce, Typing…" />
-            <button type="button">Search</button>
-          </form>
-          <div class="hero-meta" aria-label="Library highlights">
-            <span>10 Chapters</span>
-            <span>70+ Recipes</span>
-            <span>Copy-ready Expressions</span>
+          <h1 id="hero-title">모션 레시피를<br />빠르게 찾고,<br />바로 적용하세요.</h1>
+          <p class="hero-description">
+            자주 쓰는 After Effects 익스프레션을 목적별로 정리한 미니멀 레퍼런스입니다.
+            챕터로 둘러보거나 검색해서 필요한 표현식을 즉시 찾아보세요.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="chapter.html">Browse Chapters</a>
+            <a class="button secondary" href="#search">Search Recipes</a>
+          </div>
+          <div class="stats-grid" aria-label="Library stats">
+            <div><strong id="recipe-count">71</strong><span>Total Recipes</span></div>
+            <div><strong id="chapter-count">10</strong><span>Total Chapters</span></div>
           </div>
         </div>
-        <aside class="hero-card" aria-label="Featured recipe preview">
-          <div class="card-window-bar"><span></span><span></span><span></span></div>
+        <aside class="hero-card landing-card" aria-label="Featured recipe preview">
+          <p class="eyebrow">Featured Recipe</p>
           <div class="recipe-preview-header">
-            <p>Featured Recipe</p>
             <strong>Elastic Pop-in</strong>
+            <a href="recipes/14-elastic-pop-in.html">Open →</a>
           </div>
-          <pre><code>amp = .08;
-freq = 4.5;
-decay = 7;
-
-n = 0;
-if (numKeys &gt; 0) {
-  n = nearestKey(time).index;
-}
-value * (1 + amp * Math.sin(freq * time) / Math.exp(decay * time));</code></pre>
+          <pre><code>freq = 4;
+decay = 6;
+t = time - inPoint;
+value * (1 + Math.sin(t * freq) / Math.exp(t * decay));</code></pre>
         </aside>
       </section>
 
-      <section id="chapters" class="section" aria-labelledby="chapters-title">
+      <section id="search" class="search-section" aria-labelledby="search-title">
         <div class="section-heading">
-          <p class="eyebrow">Recipe Chapters</p>
-          <h2 id="chapters-title">움직임의 목적에 맞춰 빠르게 고르세요.</h2>
-          <p>기본 움직임부터 실무 모션까지, 현장에서 바로 쓰기 쉬운 흐름으로 정리했습니다.</p>
+          <p class="eyebrow">Live Search</p>
+          <h2 id="search-title">제목, 설명, 속성으로 바로 검색하세요.</h2>
+          <p>입력하는 즉시 결과가 업데이트됩니다. 결과를 선택하면 해당 레시피 페이지로 이동합니다.</p>
         </div>
+        <form class="search-panel live-search" role="search" aria-label="Expression recipe search">
+          <label class="sr-only" for="recipe-search">익스프레션 검색</label>
+          <span aria-hidden="true" class="search-icon">⌘</span>
+          <input id="recipe-search" type="search" placeholder="Float, Scale, Rotation, Typing…" autocomplete="off" />
+        </form>
+        <div id="search-results" class="search-results" aria-live="polite"></div>
+      </section>
 
-        <div class="chapter-grid">
-          <a class="chapter-card" href="chapter.html#chapter-01"><span class="chapter-number">01</span><h3>Motion Basics</h3><p>기본 움직임</p><strong>6 Recipes</strong><span class="arrow">→</span></a>
-          <a class="chapter-card" href="chapter.html#chapter-02"><span class="chapter-number">02</span><h3>Loop Motion</h3><p>무한 반복</p><strong>6 Recipes</strong><span class="arrow">→</span></a>
-          <a class="chapter-card" href="chapter.html#chapter-03"><span class="chapter-number">03</span><h3>Bounce & Spring</h3><p>탄성 · 관성</p><strong>6 Recipes</strong><span class="arrow">→</span></a>
-          <a class="chapter-card" href="chapter.html#chapter-04"><span class="chapter-number">04</span><h3>Follow Motion</h3><p>따라가기</p><strong>6 Recipes</strong><span class="arrow">→</span></a>
-          <a class="chapter-card" href="chapter.html#chapter-05"><span class="chapter-number">05</span><h3>Random Motion</h3><p>무작위 움직임</p><strong>6 Recipes</strong><span class="arrow">→</span></a>
-          <a class="chapter-card" href="chapter.html#chapter-06"><span class="chapter-number">06</span><h3>Time Control</h3><p>시간 제어</p><strong>6 Recipes</strong><span class="arrow">→</span></a>
-          <a class="chapter-card" href="chapter.html#chapter-07"><span class="chapter-number">07</span><h3>Text Motion</h3><p>텍스트 모션</p><strong>6 Recipes</strong><span class="arrow">→</span></a>
-          <a class="chapter-card" href="chapter.html#chapter-08"><span class="chapter-number">08</span><h3>Audio Reaction</h3><p>오디오 반응</p><strong>6 Recipes</strong><span class="arrow">→</span></a>
-          <a class="chapter-card" href="chapter.html#chapter-09"><span class="chapter-number">09</span><h3>Utility</h3><p>실무 함수</p><strong>6 Recipes</strong><span class="arrow">→</span></a>
-          <a class="chapter-card featured" href="chapter.html#chapter-10"><span class="chapter-number">10</span><h3>Production Recipes</h3><p>실무 레시피</p><strong>16 Recipes</strong><span class="arrow">→</span></a>
+      <section id="featured" class="section" aria-labelledby="featured-title">
+        <div class="section-heading">
+          <p class="eyebrow">Featured Recipes</p>
+          <h2 id="featured-title">실무에서 자주 쓰는 시작점.</h2>
+          <p>대표 레시피를 먼저 열어 구조와 복사 흐름을 확인해보세요.</p>
+        </div>
+        <div class="featured-grid">
+          <a class="featured-recipe" href="recipes/01-float.html"><span>#01</span><h3>Float</h3><p>위아래로 부드럽게 떠다니기</p></a>
+          <a class="featured-recipe" href="recipes/14-elastic-pop-in.html"><span>#14</span><h3>Elastic Pop-in</h3><p>통통 튀며 커지는 등장</p></a>
+          <a class="featured-recipe" href="recipes/42-typing.html"><span>#42</span><h3>Typing</h3><p>글자가 한 자씩 타이핑되듯 등장</p></a>
         </div>
       </section>
 
@@ -100,5 +103,35 @@ value * (1 + amp * Math.sin(freq * time) / Math.exp(decay * time));</code></pre>
         <p>불필요한 장식은 덜고 정보 구조와 복사 흐름이 먼저 보이도록 구성했습니다.</p>
       </section>
     </main>
+
+    <script>
+      const slugRecipe = (recipe) => `${recipe.number}-${recipe.title.toLowerCase().replace(/[^a-z0-9가-힣]+/g, '-').replace(/^-|-$/g, '')}`;
+      const escapeHtml = (value = '') => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
+      const highlight = (value, query) => {
+        const text = escapeHtml(value);
+        if (!query) return text;
+        const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        return text.replace(new RegExp(`(${escapedQuery})`, 'ig'), '<mark>$1</mark>');
+      };
+      const results = document.querySelector('#search-results');
+      const searchInput = document.querySelector('#recipe-search');
+      let recipes = [];
+      const renderResults = (query = '') => {
+        const term = query.trim().toLowerCase();
+        const matches = term
+          ? recipes.filter((recipe) => [recipe.title, recipe.description, recipe.property].some((field) => field.toLowerCase().includes(term))).slice(0, 12)
+          : recipes.slice(0, 6);
+        results.innerHTML = matches.map((recipe) => `<a class="search-result" href="recipes/${slugRecipe(recipe)}.html"><span>#${recipe.number}</span><div><strong>${highlight(recipe.title, term)}</strong><p>${highlight(recipe.description, term)}</p><em>${highlight(recipe.property, term)}</em></div></a>`).join('') || '<p class="empty-results">검색 결과가 없습니다.</p>';
+      };
+      fetch('content/recipes/recipes.json')
+        .then((response) => response.json())
+        .then((data) => {
+          recipes = data.recipes;
+          document.querySelector('#recipe-count').textContent = data.recipes.length;
+          document.querySelector('#chapter-count').textContent = data.chapters.length;
+          renderResults();
+        });
+      searchInput.addEventListener('input', (event) => renderResults(event.target.value));
+    </script>
   </body>
 </html>
