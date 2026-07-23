@@ -163,7 +163,12 @@ h2 { margin: 0; font-size: clamp(34px, 5vw, 56px); line-height: 1.05; letter-spa
 .recipe-meta div { padding: 20px; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); }
 .recipe-meta dt { color: var(--secondary); font-size: 13px; font-weight: 800; margin-bottom: 8px; }
 .recipe-meta dd { margin: 0; color: var(--text); font-weight: 700; }
-.markdown-block { white-space: pre-wrap; padding: 20px; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); color: var(--body); line-height: 1.75; }
+.markdown-block { padding: 20px; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); color: var(--body); line-height: 1.75; overflow-x: auto; }
+.markdown-block p { margin: 0; }
+.markdown-block table { width: 100%; border-collapse: collapse; overflow: hidden; border-radius: 12px; }
+.markdown-block th, .markdown-block td { padding: 12px 14px; border: 1px solid var(--border); text-align: left; vertical-align: top; }
+.markdown-block th { background: #f9fafb; color: var(--text); font-weight: 800; }
+.markdown-block code { padding: 2px 6px; border-radius: 6px; background: #f3f4f6; color: var(--text); font-size: .92em; }
 @media (max-width: 700px) {
   .recipe-row { grid-template-columns: 1fr; gap: 8px; }
   .recipe-meta { grid-template-columns: 1fr; }
